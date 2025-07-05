@@ -5,7 +5,7 @@ API_HASH = environ.get("API_HASH", "21895efc9c1187db53f3d542e4c23051")
 BOT_TOKEN = environ.get("BOT_TOKEN", "")
 
 # Make Bot Admin In Log Channel With Full Rights
-LOG_CHANNEL = int(environ.get("LOG_CHANNEL", "-1002529858777"))
+LOG_CHANNEL = int(environ.get("LOG_CHANNEL", "-1002850627278"))
 ADMINS = int(environ.get("ADMINS", "7072018503"))
 
 # Warning - Give Db uri in deploy server environment variable, don't give in repo.
