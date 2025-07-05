@@ -71,8 +71,6 @@ async def accept(client, message):
     except Exception as e:
         await msg.edit(f"**An error occurred:** {str(e)}")
         
-from pyrogram.errors import UserAlreadyParticipant
-
 @Client.on_chat_join_request(filters.group | filters.channel)
 async def approve_new(client, m):
     if not NEW_REQ_MODE:
