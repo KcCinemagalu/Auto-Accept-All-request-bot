@@ -72,7 +72,7 @@ async def accept(client, message):
         
 @Client.on_chat_join_request(filters.group | filters.channel)
 async def approve_new(client, m):
-    if not NEW_REQ_MODE:
+    if NEW_REQ_MODE == False:
         return
 
     try:
@@ -103,3 +103,4 @@ async def approve_new(client, m):
     except Exception as e:
         print(str(e))
         pass
+
