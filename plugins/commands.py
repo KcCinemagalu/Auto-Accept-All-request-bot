@@ -73,39 +73,18 @@ async def accept(client, message):
         
 @Client.on_chat_join_request(filters.group | filters.channel)
 async def approve_new(client, m):
-    if not NEW_REQ_MODE:
-        return
-
+    if NEW_REQ_MODE == False:
+        return 
     try:
         if not await db.is_user_exist(m.from_user.id):
             await db.add_user(m.from_user.id, m.from_user.first_name)
-            await client.send_message(
-                LOG_CHANNEL,
-                LOG_TEXT.format(m.from_user.id, m.from_user.mention)
-            )
-
+            await client.send_message(LOG_CHANNEL, LOG_TEXT.format(m.from_user.id, m.from_user.mention))
+        await client.approve_chat_join_request(m.chat.id, m.from_user.id)
         try:
-            await client.approve_chat_join_request(m.chat.id, m.from_user.id)
-        except UserAlreadyParticipant:
-            print(f"User {m.from_user.id} is already in the chat.")
-            # You can continue sending them the message if needed
-
-        try:
-            message_text = (
-                f"👋 **Hello {m.from_user.mention}**\n\n"
-                f"✅ Your request to join **{m.chat.title}** has been **approved**!\n\n"
-                "🎬 𝐉𝐎𝐈𝐍: @KR_Filmy_Links for movie updates\n\n"
-                "📥 Send 👉 /start to get 𝗞𝗮𝗻𝗻𝗮𝗱𝗮 𝗥𝗼𝗰𝗸𝗲𝗿𝘀 movies.\n\n"
-                "🔗 Join channels:\n"
-                "➡️ https://t.me/+KEoYIb2WtF9kNmE1\n"
-                "➡️ https://t.me/+KEoYIb2WtF9kNmE1"
-            )
-
-            await client.send_message(m.from_user.id, message_text)
-        except Exception as dm_error:
-            print(f"Failed to send DM: {dm_error}")
-
+            await client.send_message(m.from_user.id, "**Hello {}!\nYour Request For {Channel name} Is Accepted ✅ 𝐉𝐎𝐈𝐍: @KR_Filmy_Links\n\n{}!𝗦𝗘𝗡𝗗 👉 /start To Get 𝗞𝗮𝗻𝗻𝗮𝗱𝗮 𝗥𝗼𝗰𝗸𝗲𝗿𝘀 𝗠𝗼𝘃𝗶𝗲𝘀 Updates\n\n𝐉𝐨𝐢𝐧👇👇\nhttps://t.me/+KEoYIb2WtF9kNmE1\nhttps://t.me/+KEoYIb2WtF9kNmE1**".format(m.from_user.mention, m.chat.title))
+        except:
+            pass
     except Exception as e:
-        print(f"Unhandled error: {e}")
-
+        print(str(e))
+        pass
 
