@@ -1,10 +1,4 @@
-# VJ Join Request Acceptor Bot
-
 **A Advance Join Request Accept Bot Which Can Accept Both All Pending Join Request And New Join Request With Login Feature.**
-
-**For New Join Request Use This Repo [Click Here]()**
-
-## How To Deploy [Video Tutorial]()
 
 #### Environment Variables
 
@@ -21,9 +15,3 @@
 - `/login` : login your telegram account for string session
 - `/logout` : logout your telegram account 
 - `/broadcast` : reply this command to your broadcast message in bot.</b>
-
-## Update Channel [AJ Botz](https://t.me/AJxBotZ)
-
-## Support Group [AJ Support](https://t.me/AJxMirror_Leech_bot)
-
-## Credit - [AJ](https://youtube.com)
