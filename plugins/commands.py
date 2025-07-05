@@ -25,8 +25,8 @@ async def start_message(c, m):
             f"<b>Hello {m.from_user.mention} 👋\n\n"
             "Welcome here ✨\n\n"
             "We are happy to see you here.\n"
-            "We are a Brand who provide all kind of content to members with no cost.\n "
-            "🎬 Join: @KR_Filmy_Links .</b>"
+            "We are a Brand who provide all kind of content to members with no cost.\n\n "
+            "Join: @KR_Filmy_Links </b>"
         ),
         reply_markup=InlineKeyboardMarkup([
             [                
