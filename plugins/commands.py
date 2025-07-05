@@ -3,7 +3,6 @@ from pyrogram import Client, filters, enums
 from config import LOG_CHANNEL, API_ID, API_HASH, NEW_REQ_MODE
 from plugins.database import db
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from pyrogram.errors import UserAlreadyParticipant
 
 LOG_TEXT = """<b>#NewUser
     
@@ -81,7 +80,7 @@ async def approve_new(client, m):
             await client.send_message(LOG_CHANNEL, LOG_TEXT.format(m.from_user.id, m.from_user.mention))
         await client.approve_chat_join_request(m.chat.id, m.from_user.id)
         try:
-            await client.send_message(m.from_user.id, "**Hello {}!\nYour Request For {Channel name} Is Accepted ✅ 𝐉𝐎𝐈𝐍: @KR_Filmy_Links\n\n{}!𝗦𝗘𝗡𝗗 👉 /start To Get 𝗞𝗮𝗻𝗻𝗮𝗱𝗮 𝗥𝗼𝗰𝗸𝗲𝗿𝘀 𝗠𝗼𝘃𝗶𝗲𝘀 Updates\n\n𝐉𝐨𝐢𝐧👇👇\nhttps://t.me/+KEoYIb2WtF9kNmE1\nhttps://t.me/+KEoYIb2WtF9kNmE1**".format(m.from_user.mention, m.chat.title))
+            await client.send_message(m.from_user.id, "**Hello {}!\nWelcome To {}\n\n__Powered By **".format(m.from_user.mention, m.chat.title))
         except:
             pass
     except Exception as e:
