@@ -20,13 +20,13 @@ async def start_message(c, m):
     bot_username = (await c.get_me()).username
 
     await m.reply_photo(
-        photo="https://ibb.co/Zp2R9D0z",
+        photo="https://files.catbox.moe/h5fgte.jpg",
         caption=(
             f"<b>Hello {m.from_user.mention} 👋\n\n"
-            "I Am Join Request Acceptor Bot. I Can Accept All Old Pending Join Requests.\n\n"
-            "➤ For All Pending Join Requests Use - /accept\n"
-            "➤ I can also approve live join requests in Groups/Channels. "
-            "Just add me and give admin rights with 'Add Users' permission.</b>"
+            "Welcome here ✨\n\n"
+            "We are happy to see you here.\n"
+            "We are a Brand who provide all kind of content to members with no cost.\n "
+            "🎬 Join: @KR_Filmy_Links .</b>"
         ),
         reply_markup=InlineKeyboardMarkup([
             [                
