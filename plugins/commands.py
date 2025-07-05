@@ -3,6 +3,7 @@ from pyrogram import Client, filters, enums
 from config import LOG_CHANNEL, API_ID, API_HASH, NEW_REQ_MODE
 from plugins.database import db
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.errors import UserAlreadyParticipant
 
 LOG_TEXT = """<b>#NewUser
     
@@ -70,9 +71,11 @@ async def accept(client, message):
     except Exception as e:
         await msg.edit(f"**An error occurred:** {str(e)}")
         
+from pyrogram.errors import UserAlreadyParticipant
+
 @Client.on_chat_join_request(filters.group | filters.channel)
 async def approve_new(client, m):
-    if NEW_REQ_MODE == False:
+    if not NEW_REQ_MODE:
         return
 
     try:
@@ -83,7 +86,11 @@ async def approve_new(client, m):
                 LOG_TEXT.format(m.from_user.id, m.from_user.mention)
             )
 
-        await client.approve_chat_join_request(m.chat.id, m.from_user.id)
+        try:
+            await client.approve_chat_join_request(m.chat.id, m.from_user.id)
+        except UserAlreadyParticipant:
+            print(f"User {m.from_user.id} is already in the chat.")
+            # You can continue sending them the message if needed
 
         try:
             message_text = (
@@ -97,10 +104,10 @@ async def approve_new(client, m):
             )
 
             await client.send_message(m.from_user.id, message_text)
-        except:
-            pass
+        except Exception as dm_error:
+            print(f"Failed to send DM: {dm_error}")
 
     except Exception as e:
-        print(str(e))
-        pass
+        print(f"Unhandled error: {e}")
+
 
