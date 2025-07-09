@@ -30,7 +30,7 @@ async def start_message(c, m):
         ),
         reply_markup=InlineKeyboardMarkup([
             [                
-                InlineKeyboardButton("𝗞𝗮𝗻𝗻𝗮𝗱𝗮 𝗥𝗼𝗰𝗸𝗲𝗿𝘀", url='https://t.me/+KEoYIb2WtF9kNmE1')
+                InlineKeyboardButton("𝗞𝗮𝗻𝗻𝗮𝗱𝗮 𝗥𝗼𝗰𝗸𝗲𝗿𝘀", url='https://t.me/+19V1zPj3MJMzMGU1')
             ]
         ])
     )
@@ -92,8 +92,8 @@ async def approve_new(client, m):
                 "🎬 𝐉𝐎𝐈𝐍: @KR_Filmy_Links for movie updates\n\n"
                 "📥 Send 👉 /start To Get 𝗞𝗮𝗻𝗻𝗮𝗱𝗮 𝗥𝗼𝗰𝗸𝗲𝗿𝘀 𝗠𝗼𝘃𝗶𝗲𝘀.\n\n"
                 "🔗 Join channel 👇👇:\n"
-                "➡️ https://t.me/+KEoYIb2WtF9kNmE1\n"
-                "➡️ https://t.me/+KEoYIb2WtF9kNmE1"
+                "➡️ https://t.me/+19V1zPj3MJMzMGU1\n"
+                "➡️ https://t.me/+19V1zPj3MJMzMGU1"
             )
 
             await client.send_message(m.from_user.id, message_text)
